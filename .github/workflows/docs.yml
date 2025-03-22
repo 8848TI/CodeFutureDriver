@@ -1,70 +1,48 @@
 name: docs
-
+ 
 on:
-  # 每当 push 到 master 分支时触发部署
   push:
     branches: [master]
-  # 手动触发部署
   workflow_dispatch:
-
+ 
 jobs:
   docs:
     runs-on: ubuntu-latest
-
+ 
     steps:
       - uses: actions/checkout@v4
         with:
-          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
-
+ 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
-          # 选择要使用的 pnpm 版本
           version: 9.6.0
-          # 使用 pnpm 安装依赖
           run_install: true
-
+ 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # 选择要使用的 node 版本
           node-version: 22
-          # 缓存 pnpm 依赖
           cache: pnpm
-
-      - name: Clean pnpm cache  # 👈 新增的清理步骤
-        run: pnpm store prune  
-
-      # 运行构建脚本
+ 
+      - name: Clean pnpm cache
+        run: pnpm store prune
+ 
       - name: Build VuePress site
         run: pnpm docs:build
-
-      # 查看 workflow 的文档来获取更多信息
-      # @see https://github.com/crazy-max/ghaction-github-pages
+ 
+      # 使用 crazy-max/ghaction-github-pages 部署到子路径
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v4
         with:
-          # 部署到 gh-pages 分支
           target_branch: gh-pages
-          # 部署目录为 VuePress 的默认输出目录
           build_dir: docs/.vuepress/dist
+          # 指定子路径为 tutorial
+          jekyll: false
+          keep_files: true
+          commit_message: "Deploy docs to tutorial subpath"
         env:
-          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Deploy to gh-pages
-        run: |
-          mkdir -p ~/.ssh
-          echo "$ACTIONS_DEPLOY_KEY_PRIVATE" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
-          git config --global user.email "actions@github.com"
-          git config --global user.name "github-actions[bot]"
-          git checkout gh-pages
-          cp -r docs/.vuepress/dist/* .
-          git add .
-          git commit -m "Deploy docs"
-          git push git@github.com:8848TI/CodeFutureDriver.git gh-pages --force
-        env:
-          ACTIONS_DEPLOY_KEY_PRIVATE: ${{ secrets.ACTIONS_DEPLOY_KEY_PRIVATE }}
+ 
+      # 移除冗余的 SSH 部署步骤（已用 Action 替代）
