@@ -3,7 +3,7 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 
 export default defineUserConfig({
-  base: '/',
+  base: '/tutorial/',
   lang: 'zh-CN',
   locales: {
     '/': {
@@ -14,7 +14,7 @@ export default defineUserConfig({
     '/en/': {
       title: '码动未来',
       lang: 'en-US',
-      description: '这是一个小白的学习笔记，用来记录一些编程教程，工具安装，编码技巧等1',
+      description: '这是一个小白的学习笔记，用来记录一些编程教程，工具安装，编码技巧等',
     },
   },
 
