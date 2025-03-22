@@ -32,7 +32,7 @@ jobs:
           node-version: 22
           # 缓存 pnpm 依赖
           cache: pnpm
-          
+
       - name: Clean pnpm cache  # 👈 新增的清理步骤
         run: pnpm store prune  
 
@@ -52,3 +52,19 @@ jobs:
         env:
           # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy to gh-pages
+        run: |
+          mkdir -p ~/.ssh
+          echo "$ACTIONS_DEPLOY_KEY_PRIVATE" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -t ed25519 github.com >> ~/.ssh/known_hosts
+          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
+          git checkout gh-pages
+          cp -r docs/.vuepress/dist/* .
+          git add .
+          git commit -m "Deploy docs"
+          git push git@github.com:8848TI/CodeFutureDriver.git gh-pages --force
+        env:
+          ACTIONS_DEPLOY_KEY_PRIVATE: ${{ secrets.ACTIONS_DEPLOY_KEY_PRIVATE }}
