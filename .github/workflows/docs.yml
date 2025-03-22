@@ -21,7 +21,7 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           # 选择要使用的 pnpm 版本
-          version: 10
+          version: 9.6.0
           # 使用 pnpm 安装依赖
           run_install: true
 
@@ -32,6 +32,9 @@ jobs:
           node-version: 22
           # 缓存 pnpm 依赖
           cache: pnpm
+          
+      - name: Clean pnpm cache  # 👈 新增的清理步骤
+        run: pnpm store prune  
 
       # 运行构建脚本
       - name: Build VuePress site
