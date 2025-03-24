@@ -1,7 +1,7 @@
 # 码动未来
 
 这是一个编程小白的编程笔记
-基于express开发
+基于vuepress开发
 
 ## Install
 
