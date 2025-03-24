@@ -27,6 +27,15 @@ export default defineUserConfig({
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
 
   theme: plumeTheme({
+    comment: {
+      provider: 'Giscus',
+      comment: true,
+      repo: '8848TI/CodeFutureDriver',
+      repoId: 'R_kgDOOMvpZw',
+      category: 'General',
+      categoryId: 'DIC_kwDOOMvpZ84CoY8l', 
+    },
+
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */  
     // hostname: 'https://your_site_url',
 
