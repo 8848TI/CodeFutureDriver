@@ -92,8 +92,9 @@ git commit -m ""说明注释 // 提交并保存
 8. git push --set-upstream origin "master" // 上传文件
 9. git push -u origin "master"			// 第八点简写
 10. git push							// 第九点简写
-11. 
-12. 
+11. git branch 分支名     // 创建分支
+12. git branch -v         // 查看当前分支
+13. git checkout  分支名  // 切换分支
 ```
 
 
