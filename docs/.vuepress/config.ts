@@ -166,6 +166,14 @@ export default defineUserConfig({
     //   reactionsEnabled: true,
     //   inputPosition: 'top',
     // },
+    comment: {
+      provider: 'Giscus',
+      comment: true,
+      repo: '8848TI/CodeFutureDriver',
+      repoId: 'R_kgDOOMvpZw',
+      category: 'General',
+      categoryId: 'DIC_kwDOOMvpZ84CoY8l',
+    },
 
     /**
      * 加密功能
