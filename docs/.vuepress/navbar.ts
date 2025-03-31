@@ -32,15 +32,16 @@ export const zhNavbar = defineNavbarConfig([
     items: [
       { text: 'Android', link: '/移动端/Android.html' },
       { text: '鸿蒙入门', link: '/移动端/鸿蒙教程基础篇.html' },
-      { text: 'UniApp', link: '/移动端/UniApp.html' }
+      { text: 'UniApp', link: '/移动端/UniApp入门（一）.html' }
     ]
   },
   {
     text: '开发工具',
     items: [
-      { text: 'git版本管理', link: '/开发工具/git版本管理.html' },
+      { text: 'git版本管理', link: '/开发工具/git/git版本管理.html' },
       { text: 'VScode', link: '/开发工具/VScode.html' },
-      { text: 'Typora', link: '/开发工具/Typora.html' }
+      { text: 'Typora', link: '/开发工具/Typora.html' },
+      { text: 'Everything', link: '/开发工具/Everything.html' }
     ]
   },
   {
@@ -55,6 +56,24 @@ export const zhNavbar = defineNavbarConfig([
       { text: 'FISCO-BOCS', link: '/其它/FISCO-BOCS.html' },
       { text: 'Linux', link: '/其它/Linux.html' },
       { text: 'MySQL', link: '/其它/MySQL.html' },
+      { text: '摸鱼', link: '/其它/摸鱼.html' }
+    ]
+  },
+  {
+    text: '在线技术文档',
+    items: [
+      { text: '菜鸟教程', link: 'https://www.runoob.com/' },
+      { text: 'MDN前端手册', link: 'https://developer.mozilla.org/zh-CN/' },
+      { text: 'Bootstrap中文手册', link: 'https://www.bootcss.com/' },
+      { text: 'NPM手册', link: 'https://www.npmjs.com/' },
+      { text: 'Jquery手册', link: 'https://jquery.com/' },
+      { text: 'ElementUI中文手册', link: 'https://element-plus.org/zh-CN/' },
+      { text: 'uni-app官网', link: 'https://uniapp.dcloud.net.cn/' },
+      { text: 'Vue.js中文手册', link: 'https://cn.vuejs.org/' },
+      { text: 'vant4中文手册', link: 'https://vant-ui.github.io/vant/#/zh-CN/list' },
+      { text: 'ECharts图标手册', link: 'https://echarts.apache.org/zh/index.html' },
+      { text: 'WeBASE手册', link: 'https://webasedoc.readthedocs.io/zh-cn/latest/' },
+      { text: '', link: '' }
     ]
   }
 ])

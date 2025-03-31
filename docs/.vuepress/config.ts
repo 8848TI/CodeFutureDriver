@@ -20,7 +20,7 @@ export default defineUserConfig({
 
   head: [
     // 配置站点图标
-    ['link', { rel: 'icon', type: 'image/png', href: 'https://theme-plume.vuejs.press/favicon-32x32.png' }],
+    ['link', { rel: 'icon', type: 'image/png', href: './asserts/logo.jpg' }],
   ],
 
   bundler: viteBundler(),
@@ -106,6 +106,9 @@ export default defineUserConfig({
       * markdown
       * @see https://theme-plume.vuejs.press/config/markdown/
       */
+     markdown: {
+      demo: true
+     },
     // markdown: {
     //   abbr: true,         // 启用 abbr 语法  *[label]: content
     //   annotation: true,   // 启用 annotation 语法  [+label]: content

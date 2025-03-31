@@ -6,7 +6,7 @@ import { enNotes, zhNotes } from './notes'
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: 'https://theme-plume.vuejs.press/plume.png',
+  logo: './asserts/logo.jpg',
 
   appearance: true,  // 配置 深色模式
 
@@ -47,7 +47,7 @@ export default defineThemeConfig({
        * @see https://theme-plume.vuejs.press/config/basic/#profile
        */
       profile: {
-        avatar: 'https://theme-plume.vuejs.press/plume.png',
+        avatar: './asserts/logo.jpg',
         name: '码动未来',
         description: '这是一个小白的学习笔记，用来记录一些编程教程，工具安装，编码技巧等',
         // circle: true,
